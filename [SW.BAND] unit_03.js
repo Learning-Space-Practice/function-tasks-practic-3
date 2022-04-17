@@ -2,74 +2,69 @@
 // Напишите функцию t1, которая возвращает сумму переданных ей аргументов a и b.
 
 function t1(a, b) {
-    return a + b
+  return a + b;
 }
 
-document.querySelector('.b-1').addEventListener('click', function () {
-    document.querySelector('.out-1').textContent = t1(120, 140);
-})
-
-
+document.querySelector(".b-1").addEventListener("click", function () {
+  document.querySelector(".out-1").textContent = t1(120, 140);
+});
 
 // Task 2.
 
-//Напишите функцию t2, которая принимает 2 аргумента и возвращает больший из них. 
+//Напишите функцию t2, которая принимает 2 аргумента и возвращает больший из них.
 
 function t2(a, b) {
-    if(a > b)return a;
-    if(b > a)return b
+  if (a > b) return a;
+  if (b > a) return b;
 }
 
-document.querySelector('.b-2').addEventListener('click', function () {
-    document.querySelector('.out-2').textContent = t2(120, 140);
-})
-
-
+document.querySelector(".b-2").addEventListener("click", function () {
+  document.querySelector(".out-2").textContent = t2(120, 140);
+});
 
 // Task 3.
-// На странице есть checkbox .ch-3. Напишите функцию, которая возвращает его value если он выбран и false если не выбран. 
+// На странице есть checkbox .ch-3. Напишите функцию, которая возвращает его value если он выбран и false если не выбран.
 
 function t3() {
-    const checkbox = document.querySelector('.ch-3')
-    console.log(checkbox)
-    // if(checkbox.checked){
-    //     return checkbox.value
-    // }
+  const checkbox = document.querySelector(".ch-3");
+  console.log(checkbox);
+  // if(checkbox.checked){
+  //     return checkbox.value
+  // }
 }
 
-document.querySelector('.b-3').addEventListener('click', function () {
-    document.querySelector('.out-3').textContent = t3();
-})
+document.querySelector(".b-3").addEventListener("click", function () {
+  document.querySelector(".out-3").textContent = t3();
+});
 
 // Task 4
-// На странице есть radiobutton .r-4. Напишите функцию, которая возвращет value выбранного radiobutton. 
+// На странице есть radiobutton .r-4. Напишите функцию, которая возвращет value выбранного radiobutton.
 
 function t4() {
-    const checkbox = document.querySelectorAll('.r-4')
-    for(let i = 0; i < checkbox.length; i++){
-        console.log(checkbox[i].checked)
-        if(checkbox[i].checked === true){
-            return checkbox[i].value
-        }
-    }   
+  const checkbox = document.querySelectorAll(".r-4");
+  for (let i = 0; i < checkbox.length; i++) {
+    console.log(checkbox[i].checked);
+    if (checkbox[i].checked === true) {
+      return checkbox[i].value;
+    }
+  }
 }
 
-document.querySelector('.b-4').addEventListener('click', function () {
-    document.querySelector('.out-4').textContent = t4();
-})
-
+document.querySelector(".b-4").addEventListener("click", function () {
+  document.querySelector(".out-4").textContent = t4();
+});
 
 // Task 5
-// Напишите функцию t5, которая получает из s51 число, из s52 знак и из s53 число и 
-// возвращает результат математической операции над этими числами с этим знаком. Т.е. возвращает или сумму чисел, 
+// Напишите функцию t5, которая получает из s51 число, из s52 знак и из s53 число и
+// возвращает результат математической операции над этими числами с этим знаком. Т.е. возвращает или сумму чисел,
 // или произведение, или разность или деление.
 
 function t5() {
-const s51 = document.querySelector('.s51')
-const s52 = document.querySelector('.s52')
-const s53 = document.querySelector('.s53')
+  const s51 = document.querySelector(".s51");
+  const s52 = document.querySelector(".s52");
+  const s53 = document.querySelector(".s53");
 
-function oparation (value) {
+  function oparation(value) {
     // if(s52.value === '+'){
     //     return +(s51.value) + Number(s53.value)
     // } else
@@ -83,303 +78,306 @@ function oparation (value) {
     //     return +(s51.value) / Number(s53.value)
     // }
     let res = 0;
-    switch(s52.value){
-        case '+':
-         res = (+(s51.value) + Number(s53.value))
-         break;
-         case '-':
-         res = (+(s51.value) - Number(s53.value))
-         break;
-         case '*':
-         res = (+(s51.value) * Number(s53.value))
-         break;
-         case '/':
-         res = (+(s51.value) / Number(s53.value))
-         break;
-         default:
-         res = 'выберите операцию';
+    switch (s52.value) {
+      case "+":
+        res = +s51.value + Number(s53.value);
+        break;
+      case "-":
+        res = +s51.value - Number(s53.value);
+        break;
+      case "*":
+        res = +s51.value * Number(s53.value);
+        break;
+      case "/":
+        res = +s51.value / Number(s53.value);
+        break;
+      default:
+        res = "выберите операцию";
     }
     return res;
+  }
+  return oparation(s52.value);
 }
-return oparation(s52.value)
-}
 
-
-
-document.querySelector('.b-5').addEventListener('click', function () {
-    document.querySelector('.out-5').textContent = t5();
-})
-
-
+document.querySelector(".b-5").addEventListener("click", function () {
+  document.querySelector(".out-5").textContent = t5();
+});
 
 // Task 6
-// Напишите функцию, которая принимает три аргумента: num1, num2 - числа и sign - строку знак операции. sign может 
+// Напишите функцию, которая принимает три аргумента: num1, num2 - числа и sign - строку знак операции. sign может
 // быть равен '+', '-', '/', '*'. В зависимости от знака функция должна возвращать результат выбранной операции над числами.
 //  Например передали числа 10 и 5 и знак '/'. Функция должна возвратить 2.
 
 function t6(num1, num2, sign) {
-    let res = 0;
-    switch(sign){
-        case '+':
-         res = num1 + num2
-         break;
-         case '-':
-            res = num1 - num2
-         break;
-         case '*':
-            res = num1 * num2
-         break;
-         case '/':
-            res = num1 / num2
-         break;
-         default:
-         res = 'выберите операцию';
-    }
-    return res;   
+  let res = 0;
+  switch (sign) {
+    case "+":
+      res = num1 + num2;
+      break;
+    case "-":
+      res = num1 - num2;
+      break;
+    case "*":
+      res = num1 * num2;
+      break;
+    case "/":
+      res = num1 / num2;
+      break;
+    default:
+      res = "выберите операцию";
+  }
+  return res;
 }
 
-document.querySelector('.b-6').addEventListener('click', function () {
-    document.querySelector('.out-6').textContent = t6(100, 2, '*');
-})
-
-
+document.querySelector(".b-6").addEventListener("click", function () {
+  document.querySelector(".out-6").textContent = t6(100, 2, "*");
+});
 
 // Task 7
 // Напишите функцию, которая принимает аргумент и возвращает true если аргумент число и false во всех остальных случаях
 
 function t7(arg) {
-    if((typeof arg) === 'number'){
-        return true
-    } else{ return false}
+  if (typeof arg === "number") {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-document.querySelector('.b-7').addEventListener('click', function () {
-    document.querySelector('.out-7').textContent = t7('100');
-})
-
-
+document.querySelector(".b-7").addEventListener("click", function () {
+  document.querySelector(".out-7").textContent = t7("100");
+});
 
 // Task 8
 // Напишите функцию, которая принимает число дробь (например 23.34) и параметр 'floor' или 'ceil' и возвращает число с соответствующим округлением ( либо floor либо ceil).
 
-
 function t8(num, method) {
-    if(method === 'ceil'){
-      return Math.ceil(num)  
-    } else if(method === 'floor'){
-        return Math.floor(num)  
-    }   
+  if (method === "ceil") {
+    return Math.ceil(num);
+  } else if (method === "floor") {
+    return Math.floor(num);
+  }
 }
 
-document.querySelector('.b-8').addEventListener('click', function () {
-    document.querySelector('.out-8').textContent = 10 + t8(100.11, 'ceil');
-})
-
-
-
+document.querySelector(".b-8").addEventListener("click", function () {
+  document.querySelector(".out-8").textContent = 10 + t8(100.11, "ceil");
+});
 
 // Task 9
 // Напишите функцию, которая принимает число и степень в которую нужно возвести число. Возвращает true если число возведенное в степень четное и false если не четное.
 
 function t9(n, p) {
- const res = Math.pow(n, p)
+  const res = Math.pow(n, p);
 
- if(res % 2 === 0){
-     return true
- } else { return false}
-
+  if (res % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-document.querySelector('.b-9').addEventListener('click', function () {
-    document.querySelector('.out-9').textContent = t9(10, 3);
-})
-
-
-
+document.querySelector(".b-9").addEventListener("click", function () {
+  document.querySelector(".out-9").textContent = t9(10, 3);
+});
 
 // Task 10
 // Напишите функцию, t10, которая возвращает количество переданных ей аргументов (число).
 
-
 function t10(...arr) {
-    return Number(arr.length)
+  return Number(arr.length);
 }
 
-document.querySelector('.b-10').addEventListener('click', function () {
-    document.querySelector('.out-10').textContent = t10(33, 22, 44, 11, 55, 66, 11, 66);
-})
-
+document.querySelector(".b-10").addEventListener("click", function () {
+  document.querySelector(".out-10").textContent = t10(
+    33,
+    22,
+    44,
+    11,
+    55,
+    66,
+    11,
+    66
+  );
+});
 
 // Task 11
 // Напишите функцию, t11, которая возвращает cумму переданных ей аргументов (число). Используем arguments.
 
 function t11() {
-    let res = 0
-    for(let i = 0; i < arguments.length; i++){
-        res = res + arguments[i]
-        console.log(res)
-    }
-    return res
+  let res = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    res = res + arguments[i];
+    console.log(res);
+  }
+  return res;
 }
 
-document.querySelector('.b-11').addEventListener('click', function () {
-    document.querySelector('.out-11').textContent = t11(33, 22, 44, 11, 55, 66, 11, 66);
-})
+document.querySelector(".b-11").addEventListener("click", function () {
+  document.querySelector(".out-11").textContent = t11(
+    33,
+    22,
+    44,
+    11,
+    55,
+    66,
+    11,
+    66
+  );
+});
 
 // Task 12
 // Напишите функцию, t12, которая возвращает cумму переданных ей аргументов (число). Используем rest.
 
 function t12(...arr) {
-    let res = 0
-    for(let i = 0; i < arr.length; i++){
-        res = res + arr[i]
-        console.log(res)
-    }
-    return res
+  let res = 0;
+  for (let i = 0; i < arr.length; i++) {
+    res = res + arr[i];
+    console.log(res);
+  }
+  return res;
 }
 
-document.querySelector('.b-12').addEventListener('click', function () {
-    document.querySelector('.out-12').textContent = t12(33, 22, 44, 11, 55, 66, 11, 66);
-})
-
+document.querySelector(".b-12").addEventListener("click", function () {
+  document.querySelector(".out-12").textContent = t12(
+    33,
+    22,
+    44,
+    11,
+    55,
+    66,
+    11,
+    66
+  );
+});
 
 // Task 13
 // Напишите функцию, t13, которая возвращает случайное целое число в заданном диапазоне min, max.
 
 function t13(min, max) {
-    let random = Math.floor(min + Math.random() * (max + 1 - min))
-    return random
+  let random = Math.floor(min + Math.random() * (max + 1 - min));
+  return random;
 }
 
-document.querySelector('.b-13').addEventListener('click', function () {
-    document.querySelector('.out-13').textContent = t13(100, 120);
-})
-
+document.querySelector(".b-13").addEventListener("click", function () {
+  document.querySelector(".out-13").textContent = t13(100, 120);
+});
 
 // Task 14
 // Напишите функцию, которая возвращает строку в виде rgb(xxx,yyy,zzz) где xxx, yyy, zzz случайные целые числа в диапазонах от 0 до 255. В строке не должно быть пробелов. Для генерации случайных чисел используйте функцию t13.
 
 function t14() {
-    return `rgb(${t13(0,255)},${t13(0,255)},${t13(0,255)})`
-
+  return `rgb(${t13(0, 255)},${t13(0, 255)},${t13(0, 255)})`;
 }
 
-document.querySelector('.b-14').addEventListener('click', function () {
-    document.querySelector('.out-14').style.background = t14();
-})
-
+document.querySelector(".b-14").addEventListener("click", function () {
+  document.querySelector(".out-14").style.background = t14();
+});
 
 // Task 15
-// Напишите функцию, которая получает строку как аргумент и возвращает строку очищенную от пробелов ( с начала и конца) или false если строка содержит только пробелы. 
-
+// Напишите функцию, которая получает строку как аргумент и возвращает строку очищенную от пробелов ( с начала и конца) или false если строка содержит только пробелы.
 
 function t15(str) {
-    console.log(str.length)
-    if(/^\s+$/.test(str)){
-        return false
-    }
-    return str.trim()
+  console.log(str.length);
+  if (/^\s+$/.test(str)) {
+    return false;
+  }
+  return str.trim();
 }
 
-document.querySelector('.b-15').addEventListener('click', function () {
-    console.log(t15('              he           '));
-})
+document.querySelector(".b-15").addEventListener("click", function () {
+  console.log(t15("              he           "));
+});
 
 // Task 16
-// Напишите функцию, которая получает строку как аргумент и возвращает строку приведенную к нижнему регистру. 
+// Напишите функцию, которая получает строку как аргумент и возвращает строку приведенную к нижнему регистру.
 
 function t16(str) {
-    return str.toLowerCase()
+  return str.toLowerCase();
 }
 
-document.querySelector('.b-16').addEventListener('click', function () {
-    document.querySelector('.out-16').textContent = t16('HelLO wORLd');
-})
+document.querySelector(".b-16").addEventListener("click", function () {
+  document.querySelector(".out-16").textContent = t16("HelLO wORLd");
+});
 
 // Task 17
 // Напишите функцию, которая получает value выбранного option select.s-171 и возвращает его.
 
 function t17() {
-    const s171 = document.querySelector('.s-171').value
-    return s171
-    
+  const s171 = document.querySelector(".s-171").value;
+  return s171;
 }
 
-document.querySelector('.s-171').addEventListener('change', function () {
-    document.querySelector('.s-172').value = t17();
-})
+document.querySelector(".s-171").addEventListener("change", function () {
+  document.querySelector(".s-172").value = t17();
+});
 
 // Task 18
-// Напишите функцию, которая получает value из input.i-18 и возвращает его. 
+// Напишите функцию, которая получает value из input.i-18 и возвращает его.
 
 function t18() {
-    const i18 = document.querySelector('.i-18').value
-    return i18
+  const i18 = document.querySelector(".i-18").value;
+  return i18;
 }
 
-document.querySelector('.i-18').addEventListener('input', function () {
-    document.querySelector('.out-18').textContent = t18();
-})
+document.querySelector(".i-18").addEventListener("input", function () {
+  document.querySelector(".out-18").textContent = t18();
+});
 
 // Task 19
-// Напишите функцию, которая получает value из input.i-19 и возвращает его. 
+// Напишите функцию, которая получает value из input.i-19 и возвращает его.
 
 function t19() {
-    const i19 = document.querySelector('.i-19').value
-    return i19
+  const i19 = document.querySelector(".i-19").value;
+  return i19;
 }
 
-document.querySelector('.i-19').addEventListener('input', function () {
-    document.querySelector('.out-19').style.borderRadius = t19() + 'px';
-})
+document.querySelector(".i-19").addEventListener("input", function () {
+  document.querySelector(".out-19").style.borderRadius = t19() + "px";
+});
 
 // Task 20
-// Напишите функцию, которая получает строку и возвращает "развернутую" строку. 
+// Напишите функцию, которая получает строку и возвращает "развернутую" строку.
 
 function t20(s) {
-    let res = s.split('').reverse().join('')
-    return res
+  let res = s.split("").reverse().join("");
+  return res;
 }
 
-document.querySelector('.b-20').addEventListener('click', function () {
-    document.querySelector('.out-20').textContent = t20('hello');
-})
-
+document.querySelector(".b-20").addEventListener("click", function () {
+  document.querySelector(".out-20").textContent = t20("hello");
+});
 
 // Task 21
 // Напишите функцию, которая в зависимости от параметра even или odd возвращает случайное целое четное (even) или не четное (odd) число от 10 до 20.
 // Для генерации случайного числа используйте t13.
 
 function t21(s) {
-
-function isInteger (x) {
-    if(x % 2 === 0){
-        return x
-    } else { 
-        return isInteger(t13(10,20))
+  function isInteger(x) {
+    if (x % 2 === 0) {
+      return x;
+    } else {
+      return isInteger(t13(10, 20));
     }
+  }
+
+  function isNotInteger(x) {
+    if (x % 2 !== 0) {
+      return x;
+    } else {
+      return isNotInteger(t13(10, 20));
+    }
+  }
+
+  if (s === "even") {
+    return isInteger(t13(10, 20));
+  } else if (s === "odd") {
+    return isNotInteger(t13(10, 20));
+  }
 }
 
-function isNotInteger (x) {
-    if(x % 2 !== 0){
-        return x
-    } else { 
-        return isNotInteger(t13(10,20))
-    }
-}
-
-    if(s === 'even'){
-        return isInteger(t13(10,20)) 
-    } else if(s === 'odd'){
-        return isNotInteger(t13(10,20))
-    }
-
-}
-
-document.querySelector('.b-21').addEventListener('click', function () {
-    document.querySelector('.out-21').textContent = 10 + t21('odd') + 20;
-})
-
+document.querySelector(".b-21").addEventListener("click", function () {
+  document.querySelector(".out-21").textContent = 10 + t21("odd") + 20;
+});
 
 // Task 22
 // Напишите функцию callback22, которая принимает параметр item и если он четный то возвращает true.
@@ -388,19 +386,19 @@ document.querySelector('.b-21').addEventListener('click', function () {
 const ar22 = [3, 4, 5, 6, 7, 8];
 
 function t22() {
-    console.log(ar22.filter(callback22))
-    return ar22.filter(callback22);
+  console.log(ar22.filter(callback22));
+  return ar22.filter(callback22);
 }
 
 function callback22(item) {
-    if(item % 2 === 0){  
-        return true
-    }
+  if (item % 2 === 0) {
+    return true;
+  }
 }
 
-document.querySelector('.b-22').addEventListener('click', function () {
-    document.querySelector('.out-22').textContent = t22();
-})
+document.querySelector(".b-22").addEventListener("click", function () {
+  document.querySelector(".out-22").textContent = t22();
+});
 
 // Task 23
 // Напишите функцию callback23, которая принимает параметр item и возвращает его возведенным во вторую степень.
@@ -408,17 +406,16 @@ document.querySelector('.b-22').addEventListener('click', function () {
 const ar23 = [3, 4, 5, 6, 7, 8];
 
 function t23() {
-    return ar23.map(callback23);
+  return ar23.map(callback23);
 }
 
 function callback23(item) {
-   return Math.pow(item, 2)
+  return Math.pow(item, 2);
 }
 
-document.querySelector('.b-23').addEventListener('click', function () {
-    document.querySelector('.out-23').textContent = t23();
-})
-
+document.querySelector(".b-23").addEventListener("click", function () {
+  document.querySelector(".out-23").textContent = t23();
+});
 
 // Task 24
 // Напишите функцию callback24, которая принимает параметр item и возвращает его возведенным во вторую степень.
@@ -426,141 +423,138 @@ document.querySelector('.b-23').addEventListener('click', function () {
 const ar24 = [3, 4, 5, 6, 7, 8];
 
 function t24() {
-    let t = [];
-    ar24.forEach(item => {
-        let newItem = callback24(item);
-        t.push(newItem);
-    });
-    return t;
+  let t = [];
+  ar24.forEach((item) => {
+    let newItem = callback24(item);
+    t.push(newItem);
+  });
+  return t;
 }
 
 function callback24(item) {
-    return Math.pow(item, 2)
+  return Math.pow(item, 2);
 }
 
-document.querySelector('.b-24').addEventListener('click', function () {
-    document.querySelector('.out-24').textContent = t24();
-})
-
+document.querySelector(".b-24").addEventListener("click", function () {
+  document.querySelector(".out-24").textContent = t24();
+});
 
 // Task 25
 // Напишите функцию которая принимает массив как аргумент и проверяет что в нем одни числа. Возвращает true если это так и false в противном.
 
-
 function t25(arr) {
+  let newArr = arr.filter(callB);
 
-let newArr = arr.filter(callB)
+  function callB(item) {
+    if (typeof item === "number") {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-function callB(item){
-    if((typeof item) === 'number'){  
-        return true
-    } else { return false}
+  if (arr.length === newArr.length) {
+    return true;
+  } else {
+    return false;
+  }
+  //         return res = true
+  //     }else{return res = false}
+  // console.log(arr)
+  // let resNumber = 0
+  // let res = true
+  // arr.forEach((item) => {
+  //     console.log(item)
+  //     if((typeof item) === 'number'){
+  //        return resNumber++
+  //     }
+  //     if(resNumber === arr.length){
+  //         return res = true
+  //     }else{return res = false}
+  //   })
+
+  //   return res
 }
 
-  if(arr.length === newArr.length){
-    return true
-  }else { return false}
-    //         return res = true
-    //     }else{return res = false}
-    // console.log(arr)
-    // let resNumber = 0
-    // let res = true
-    // arr.forEach((item) => {
-    //     console.log(item)
-    //     if((typeof item) === 'number'){
-    //        return resNumber++
-    //     } 
-    //     if(resNumber === arr.length){
-    //         return res = true
-    //     }else{return res = false}
-    //   })
-
-    //   return res
-}
-
-document.querySelector('.b-25').addEventListener('click', function () {
-    document.querySelector('.out-25').textContent = t25(["6", 5, 4]);
-})
+document.querySelector(".b-25").addEventListener("click", function () {
+  document.querySelector(".out-25").textContent = t25(["6", 5, 4]);
+});
 
 // Task 26
 // Напишите функцию которая получает из input.i-26 имя пользователя и если это не пустая строка - то выводит его в out-26 в нижнем регистре. Если строка пустая - то выходит из функции.
 
-
 function t26() {
-    const inputValue = document.querySelector('.i-26').value
-    const out26 = document.querySelector('.out-26')
-    console.log(inputValue.length)
-    if(inputValue.length === 0){
-        return confirm('введите текст')
-    }
-    const res = inputValue.trim().toLowerCase()
-    out26.innerHTML = res
-
+  const inputValue = document.querySelector(".i-26").value;
+  const out26 = document.querySelector(".out-26");
+  console.log(inputValue.length);
+  if (inputValue.length === 0) {
+    return confirm("введите текст");
+  }
+  const res = inputValue.trim().toLowerCase();
+  out26.innerHTML = res;
 }
 
-document.querySelector('.b-26').addEventListener('click', t26);
+document.querySelector(".b-26").addEventListener("click", t26);
 
 // Task 27
 // Напишите функцию которая получает из input.i-27 значение как аргумент и проверяет его наличие в объекте obj27. Если находит совпадение - возвращает ключ. Если не находит - false.
 
 const obj27 = {
-    h: 'a',
-    j: 'b',
-    k: 'z',
-    m: 'w'
-}
+  h: "a",
+  j: "b",
+  k: "z",
+  m: "w",
+};
 
 function t27(v) {
-    console.log(obj27)
-    for (key in obj27) {
-        /* ... делать что-то с obj[key] ... */
-        if(obj27[key] === v){
-            return true
-        } else { return false}
-      }
+  const keys = Object.keys(obj27);
+  let res = false
+  keys.forEach(key => {
+    if (v === obj27[key]) {
+      return res = key;
+    }
+  });
+  return res
 }
 
-document.querySelector('.b-27').addEventListener('click', function () {
-    let v = document.querySelector('.i-27').value;
-    document.querySelector('.out-27').textContent = t27(v);
-})
-
+document.querySelector(".b-27").addEventListener("click", function () {
+  let v = document.querySelector(".i-27").value;
+  document.querySelector(".out-27").textContent = t27(v);
+});
 
 // Task 28
 // Напишите функцию которая принимает два аргумента - строку и подстроку и если подстрока есть в строке - возвращает true, если нет false.
 
 function t28(str, substr) {
-    console.log(str.filter(item => item))
+ return str.includes(substr)
 }
 
-document.querySelector('.b-28').addEventListener('click', function () {
-    document.querySelector('.out-28').textContent = t28('hello my world', 'or');
-})
+document.querySelector(".b-28").addEventListener("click", function () {
+  document.querySelector(".out-28").textContent = t28("hello my world", "oriu");
+});
 
 // Task 29
 // Напишите функцию, которая получает в качестве аргументов строки и возвращает большую строку (прямым сравнением).
 
 function t29(str1, str2) {
+    return str1.toUpperCase() + str2.toUpperCase()
 }
 
-document.querySelector('.b-29').addEventListener('click', function () {
-    document.querySelector('.out-29').textContent = t29('hello', 'orBait');
-})
-
-
+document.querySelector(".b-29").addEventListener("click", function () {
+  document.querySelector(".out-29").textContent = t29("hello", "orBait");
+});
 
 // Task 30
 // Напишите функцию t30, которая возвращает функцию t31
 
 function t31() {
-    return true;
+  return true;
 }
 
 function t30() {
+    return t31
 }
 
-
-document.querySelector('.b-30').addEventListener('click', function () {
-    document.querySelector('.out-30').textContent = t30();
-})
-
+document.querySelector(".b-30").addEventListener("click", function () {
+  document.querySelector(".out-30").textContent = t30();
+});
